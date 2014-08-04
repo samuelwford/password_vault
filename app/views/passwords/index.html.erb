@@ -1,0 +1,31 @@
+<h1>Listing passwords</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Password</th>
+      <th>Notes</th>
+      <th>Group</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @passwords.each do |password| %>
+      <tr>
+        <td><%= password.name %></td>
+        <td><%= password.password %></td>
+        <td><%= password.notes %></td>
+        <td><%= password.group %></td>
+        <td><%= link_to 'Show', password %></td>
+        <td><%= link_to 'Edit', edit_password_path(password) %></td>
+        <td><%= link_to 'Destroy', password, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Password', new_password_path %>
