@@ -17,7 +17,7 @@
         <td><%= password.name %></td>
         <td><%= password.password %></td>
         <td><%= password.notes %></td>
-        <td><%= password.group %></td>
+        <td><%= password.group.name %></td>
         <td><%= link_to 'Show', password %></td>
         <td><%= link_to 'Edit', edit_password_path(password) %></td>
         <td><%= link_to 'Destroy', password, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,3 +29,5 @@
 <br>
 
 <%= link_to 'New Password', new_password_path %>
+
+<%= link_to 'Home', root_path %>
