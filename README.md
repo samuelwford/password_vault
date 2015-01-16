@@ -9,3 +9,25 @@ Ultra simple, web based, team password manager.
 * [Heroku Dashboard](https://dashboard.heroku.com/apps/password-vault-develop/resources)
 * [NewRelic Dashboard](https://rpm.newrelic.com/accounts/732174/applications)
 * [papertrail Log](https://papertrailapp.com/systems/password-vault-develop/events)
+
+## ToDo
+
+* show passwords by group
+* add fields to password:
+ * user name
+ * url
+ * api key
+ * attachment
+* password history
+ * timestamp
+ * user
+ * action
+ * value
+* change queue?
+* user
+ * name
+ * email
+ * password
+ * active
+ * role
+ * groups

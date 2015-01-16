@@ -69,6 +69,6 @@ class PasswordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def password_params
-      params.require(:password).permit(:name, :password, :notes, :group_id)
+      params.require(:password).permit(:name, :account_name, :url, :password, :notes, :group_id)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804124327) do
+ActiveRecord::Schema.define(version: 20150116232611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20140804124327) do
     t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "account_name"
+    t.string   "url"
   end
 
   add_index "passwords", ["group_id"], name: "index_passwords_on_group_id", using: :btree
