@@ -10,9 +10,7 @@
 <body>
 
 <nav>
-  <a href="#" class="main">
-    Password Vault
-  </a>
+  <%= link_to "Password Vault", root_path, class: 'main' %>
   
   <!-- responsive -->
   <input id="bmenu" class="burgercheck" type="checkbox">
@@ -20,13 +18,19 @@
   <!-- /responsive -->
 
   <div class="menu">
-    <%= link_to "Passwords", passwords_path %>
-    <%= link_to "Groups", groups_path %>
-    <a href="#table" class="icon-table">Users</a>
+    <%= link_to "Passwords", passwords_path, class: 'icon-key' %>
+    <%= link_to "Groups", groups_path, class: 'icon-suitcase' %>
+    <%= link_to "Users", users_path, class: 'icon-users' %>
+    <% if user_signed_in? %>
+      <%= link_to current_user.name, current_user, class: 'icon-user' %>
+      <%= link_to '', destroy_user_session_path, method: :delete, class: 'icon-logout' %>
+    <% end %>
   </div>
 </nav>
 
 <div class="main-content">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <%= yield %>
 </div>
 

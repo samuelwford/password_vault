@@ -2,6 +2,8 @@ require 'test_helper'
 
 class PasswordsControllerTest < ActionController::TestCase
   setup do
+    @user = users(:one)
+    sign_in :user, @user
     @password = passwords(:one)
   end
 
