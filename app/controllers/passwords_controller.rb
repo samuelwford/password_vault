@@ -4,7 +4,7 @@ class PasswordsController < ApplicationController
   # GET /passwords
   # GET /passwords.json
   def index
-    @passwords = Password.all
+    @passwords = Password.all.order(:name)
   end
 
   # GET /passwords/1

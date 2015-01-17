@@ -1,9 +1,25 @@
-<p id="notice"><%= notice %></p>
+<h2><%= @group.name %></h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+<%= link_to 'Edit', edit_group_path(@group), class: 'button' %>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<hr/>
+
+<table class="primary">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Account Name</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group.passwords.each do |password| %>
+      <tr>
+        <td><%= link_to password.name, password %></td>
+        <td><%= password.account_name %></td>
+        <td><%= link_to_if password.url, password.url, password.url %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
