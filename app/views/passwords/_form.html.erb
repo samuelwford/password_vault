@@ -12,28 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :url %><br>
+    <%= f.label :url %>
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.label :account_name %><br>
+    <%= f.label :account_name %>
     <%= f.text_field :account_name %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
+    <%= f.label :password %>
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :notes %><br>
+    <%= f.label :notes %>
     <%= f.text_area :notes %>
   </div>
   <div class="field">
-    <%= f.label :group_id %><br>
-    <%= f.collection_select :group_id, Group.all, :id, :name, prompt: true %>
+    <label class='select'>
+      <%= f.collection_select :group_id, Group.all, :id, :name, prompt: true, class: 'select' %>
+    </label>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -24,10 +24,10 @@ Make note of the version in the path; yours may have changed.
 
 ## ToDo
 
+* make prettier
+* import/export
 * show passwords by group
 * add fields to password:
- * user name
- * url
  * api key
  * attachment
 * password history

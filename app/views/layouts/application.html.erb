@@ -2,13 +2,33 @@
 <html>
 <head>
   <title>PasswordVault</title>
+  <link href="http://picnicss.com/releases/v2.3.min.css" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<nav>
+  <a href="#" class="main">
+    Password Vault
+  </a>
+  
+  <!-- responsive -->
+  <input id="bmenu" class="burgercheck" type="checkbox">
+  <label for="bmenu" class="burgermenu"></label>
+  <!-- /responsive -->
+
+  <div class="menu">
+    <%= link_to "Passwords", passwords_path %>
+    <%= link_to "Groups", groups_path %>
+    <a href="#table" class="icon-table">Users</a>
+  </div>
+</nav>
+
+<div class="main-content">
+  <%= yield %>
+</div>
 
 </body>
 </html>

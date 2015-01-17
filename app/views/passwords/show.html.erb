@@ -1,34 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @password.name %>
-</p>
+<h2><%= @password.name %> - <%= link_to @password.group.name, @password.group %></h2>
 
-<p>
-  <strong>URL:</strong>
-  <%= link_to @password.url, @password.url %>
-</p>
+<table>
+  <tr>
+    <td class='field-label'>URL:</td><td><%= link_to @password.url, @password.url %></td>
+  </tr>
+  <tr>
+    <td class='field-label'>Account Name:</td><td><%= @password.account_name %></td>
+  </tr>
+  <tr>
+    <td class='field-label'>Password:</td><td><%= @password.password %></td>
+  </tr>
+</table>
 
-<p>
-  <strong>Account Name:</strong>
-  <%= @password.account_name %>
-</p>
+<hr>
+<p><%= @password.notes %></p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @password.password %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @password.notes %>
-</p>
-
-<p>
-  <strong>Group:</strong>
-  <%= @password.group_name %>
-</p>
-
-<%= link_to 'Edit', edit_password_path(@password) %> |
-<%= link_to 'Back', passwords_path %>
+<%= link_to 'Edit', edit_password_path(@password), class: 'button' %> 
+<%= link_to 'Destroy', @sword, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button error' %>
