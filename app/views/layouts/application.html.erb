@@ -10,8 +10,9 @@
 <body>
 
 <nav>
-  <%= link_to "Password Vault", root_path, class: 'main' %>
-  
+  <%= link_to root_path, class: 'main' do %>
+    <%= image_tag 'vault_logo.png' %> Password Vault
+  <% end %>
   <!-- responsive -->
   <input id="bmenu" class="burgercheck" type="checkbox">
   <label for="bmenu" class="burgermenu"></label>
@@ -29,8 +30,14 @@
 </nav>
 
 <div class="main-content">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice %>
+    <div class="notice"><%= notice %></div>
+  <% end %>
+  
+  <% if alert %>
+    <div class="alert"><%= alert %></div>
+  <% end %>
+  
   <%= yield %>
 </div>
 

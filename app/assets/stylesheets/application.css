@@ -16,6 +16,23 @@
 
 body {
   margin-top: 60px;
+  font-size: 1em;
+}
+
+.notice {
+  border-radius: 5px;
+  background: #c8ecc5;
+  padding: 3px;
+}
+
+.alert {
+  border-radius: 5px;
+  background: #ffffcc;
+  padding: 3px;
+}
+
+.main img {
+  vertical-align: middle;
 }
 
 .main-content {
