@@ -1,4 +1,6 @@
 class Group < ActiveRecord::Base
-  has_many :passwords
+  validates :name, presence: true
+  
   has_many :accounts
+  has_and_belongs_to_many :users
 end

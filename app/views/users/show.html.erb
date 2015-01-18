@@ -10,3 +10,26 @@
     <td><%= @user.admin? %></td>
   </tr>
 </table>
+
+<%= link_to 'Edit', edit_user_path(@user), class: 'button' %> 
+
+<hr/>
+
+<h3>Groups</h3>
+<table class="primary">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number of Accounts</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.groups.each do |group| %>
+      <tr>
+        <td><%= link_to group.name, group %></td>
+        <td><%= group.accounts.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
