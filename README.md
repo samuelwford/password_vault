@@ -19,14 +19,11 @@ Make note of the version in the path; yours may have changed.
 ### Links
 
 * [Heroku Dashboard](https://dashboard.heroku.com/apps/password-vault-develop/resources)
-* [NewRelic Dashboard](https://rpm.newrelic.com/accounts/732174/applications)
-* [papertrail Log](https://papertrailapp.com/systems/password-vault-develop/events)
 
 ## ToDo
 
 * make prettier
 * import/export
-* show passwords by group
 * add fields to password:
  * api key
  * attachment
@@ -36,13 +33,8 @@ Make note of the version in the path; yours may have changed.
  * action
  * value
 * change queue?
-* user
- * name
- * email
- * password
- * active
- * role
- * groups
+* allow admin to create users
+* setup google oath login
 
 ### Devise Notes
 
