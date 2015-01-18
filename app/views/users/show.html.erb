@@ -10,3 +10,23 @@
     <td><%= @user.admin? %></td>
   </tr>
 </table>
+
+<hr/>
+
+<table class="primary">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Passwords</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.groups.each do |group| %>
+      <tr>
+        <td><%= link_to group.name, group %></td>
+        <td><%= group.accounts.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
