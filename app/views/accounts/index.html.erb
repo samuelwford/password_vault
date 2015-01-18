@@ -1,25 +1,27 @@
-<h2><%= @group.name %></h2>
+<h2>Passwords</h2>
 
-<%= link_to 'Edit', edit_group_path(@group), class: 'button' %>
-
-<hr/>
-
-<table class="primary">
+<table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Account Name</th>
-      <th>URL</th>
+      <th>Url</th>
+      <th>Group</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @group.accounts.each do |account| %>
+    <% @accounts.each do |account| %>
       <tr>
         <td><%= link_to account.name, account %></td>
         <td><%= account.account_name %></td>
         <td><%= link_to_if account.url, account.url, account.url %></td>
+        <td><%= link_to account.group.name, account.group %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<%= link_to 'New Account', new_account_path, class: 'button' %>

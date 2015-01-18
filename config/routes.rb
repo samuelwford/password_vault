@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :accounts
+
   devise_for :users
   resources :passwords
   resources :groups
