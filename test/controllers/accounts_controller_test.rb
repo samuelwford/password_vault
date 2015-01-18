@@ -2,6 +2,7 @@ require 'test_helper'
 
 class AccountsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @account = accounts(:one)
   end
 
