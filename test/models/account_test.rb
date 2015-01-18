@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PasswordTest < ActiveSupport::TestCase
+class AccountTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

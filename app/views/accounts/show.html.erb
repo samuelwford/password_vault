@@ -1,0 +1,19 @@
+<h2><%= @account.name %> - <%= link_to @account.group.name, @account.group %></h2>
+
+<table>
+  <tr>
+    <td class='field-label'>URL:</td><td><%= link_to_if @account.url, @account.url, @account.url %></td>
+  </tr>
+  <tr>
+    <td class='field-label'>Account Name:</td><td><%= @account.account_name %></td>
+  </tr>
+  <tr>
+    <td class='field-label'>Password:</td><td><%= @account.password %></td>
+  </tr>
+</table>
+
+<hr>
+<p><%= @account.notes %></p>
+
+<%= link_to 'Edit', edit_account_path(@account), class: 'button' %> 
+<%= link_to 'Destroy', @account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button error' %>
