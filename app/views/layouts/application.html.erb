@@ -22,8 +22,8 @@
     <% if user_signed_in? %>
       <%= link_to "Accounts", accounts_path, class: 'icon-key' %>
       <%= link_to "Groups", groups_path, class: 'icon-suitcase' %>
-      <%= link_to "Users", users_admin_index_path, class: 'icon-users' %>
-      <%= link_to current_user.name, users_admin_path(current_user), class: 'icon-user' %>
+      <%= link_to "Users", profiles_path, class: 'icon-users' %>
+      <%= link_to current_user.name, profiles_path(current_user), class: 'icon-user' %>
       <%= link_to '', destroy_user_session_path, method: :delete, class: 'icon-logout' %>
     <% else %>
       <%= link_to "Sign Up", new_user_admin_registration_path %>
