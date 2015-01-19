@@ -16,26 +16,22 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %>
-    <%= f.text_area :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :group_id %>
-    <%= f.text_field :group_id %>
-  </div>
-  <div class="field">
     <%= f.label :account_name %>
     <%= f.text_field :account_name %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.text_field :password %>
   </div>
   <div class="field">
     <label class='select'>
       Group
       <%= f.collection_select :group_id, Group.all, :id, :name, prompt: true, class: 'select' %>
     </label>
+  </div>
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
   </div>
   <div class="actions">
     <%= f.submit %>
