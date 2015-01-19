@@ -43,19 +43,6 @@ ActiveRecord::Schema.define(version: 20150118162530) do
   add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id", using: :btree
   add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id", using: :btree
 
-  create_table "passwords", force: true do |t|
-    t.string   "name"
-    t.string   "password"
-    t.text     "notes"
-    t.integer  "group_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "account_name"
-    t.string   "url"
-  end
-
-  add_index "passwords", ["group_id"], name: "index_passwords_on_group_id", using: :btree
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
