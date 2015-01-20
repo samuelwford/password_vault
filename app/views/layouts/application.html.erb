@@ -26,8 +26,8 @@
       <%= link_to current_user.name, profiles_path(current_user), class: 'icon-user' %>
       <%= link_to '', destroy_user_session_path, method: :delete, class: 'icon-logout' %>
     <% else %>
-      <%= link_to "Sign Up", new_user_admin_registration_path %>
-      <%= link_to "Log In", new_user_admin_session_path, class: 'icon-login' %>
+      <%= link_to "Sign Up", new_user_registration_path %>
+      <%= link_to "Log In", new_user_session_path, class: 'icon-login' %>
     <% end %>
   </div>
 </nav>
