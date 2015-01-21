@@ -3,6 +3,10 @@ class UserPolicy < ApplicationPolicy
     user.admin? || record == user
   end
   
+  def create?
+    user.admin?
+  end
+  
   class Scope < Scope
     def resolve
       if user.admin?

@@ -3,6 +3,14 @@ class GroupPolicy < ApplicationPolicy
     user.admin? || user.groups.include?(record)
   end
   
+  def destroy?
+    user.admin?
+  end
+  
+  def create?
+    user.admin?
+  end
+  
   class Scope < Scope
     def resolve
       if user.admin?
