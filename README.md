@@ -22,7 +22,13 @@ Make note of the version in the path; yours may have changed.
 
 ## ToDo
 
-* import/export
+* sweeten up ui a little
+* import/export via keepass files
+* encrypt passwords in db, decrypt in browser
+* user
+ * allow admin to reset any password
+ * allow current user to reset their password
+ * make user name required, update devise views
 * add fields to password:
  * api key
  * attachment
