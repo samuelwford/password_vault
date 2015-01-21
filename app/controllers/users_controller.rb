@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all.order(:name)
+    @users = policy_scope(User).order(:name)
   end
 
   def show
@@ -53,14 +53,15 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+      authorize @user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       if current_user.admin
-        params.require(:user).permit(:name, :email, :url, :admin, { group_ids: [] })
+        params.require(:user).permit(:name, :email, :url, :password, :password_confirmation, :admin, { group_ids: [] })
       else
-        params.require(:user).permit(:name, :email, :url)
+        params.require(:user).permit(:name, :email, :url, :password, :password_confirmation)
       end
     end
 end

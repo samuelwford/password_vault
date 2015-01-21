@@ -44,3 +44,4 @@ gem 'newrelic_rpm'
 
 gem 'devise'
 gem 'omniauth'
+gem 'pundit'
