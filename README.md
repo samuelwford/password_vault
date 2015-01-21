@@ -11,7 +11,7 @@ This app is Rails 4 & Ruby 2.1 app. I recommend using [rbenv](https://github.com
 The database is PostgreSQL for development and production environments. I recommend using [Postgress.app](http://postgresapp.com) If you have difficulty install the `pg` gem, install the gem manually as follows:
 
 ```
-gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.3/bin/pg_config
+gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
 ```
 
 Make note of the version in the path; yours may have changed.
@@ -22,7 +22,6 @@ Make note of the version in the path; yours may have changed.
 
 ## ToDo
 
-* make prettier
 * import/export
 * add fields to password:
  * api key
@@ -33,7 +32,6 @@ Make note of the version in the path; yours may have changed.
  * action
  * value
 * change queue?
-* allow admin to create users
 * setup google oath login
 
 ### Devise Notes

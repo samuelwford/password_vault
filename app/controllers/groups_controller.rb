@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all.order(:name)
+    @groups = policy_scope(Group).order(:name)
   end
 
   # GET /groups/1
@@ -65,6 +65,7 @@ class GroupsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       @group = Group.find(params[:id])
+      authorize @group
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
