@@ -2,8 +2,7 @@ require 'test_helper'
 
 class GroupsControllerTest < ActionController::TestCase
   setup do
-    @user = users(:one)
-    sign_in :user, @user
+    sign_in users(:one)
     @group = groups(:one)
   end
 

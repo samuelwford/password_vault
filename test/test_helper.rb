@@ -5,7 +5,8 @@ require 'rails/test_help'
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
-
-  # Add more helper methods to be used by all tests here...
-  include Devise::TestHelpers
+  
+  def sign_in(user)
+    session[:user_id] = user.id unless user.nil?
+  end
 end

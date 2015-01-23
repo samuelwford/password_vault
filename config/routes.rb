@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  get 'sessions/new'
+
+  get 'login', to: 'sessions#new', as: 'login'
+  delete 'logout', to: 'sessions#destroy', as: 'logout'
   
+  resources :sessions
+  resources :users
   resources :groups
-  resources :profiles, controller: 'users'
   resources :accounts
   
   # The priority is based upon order of creation: first created -> highest priority.
