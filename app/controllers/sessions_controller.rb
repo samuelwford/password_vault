@@ -1,14 +1,14 @@
 class SessionsController < ApplicationController
-  skip_before_filter :authenticate_user!, only: [:new, :create]
+  skip_before_filter :signed_in_user, only: [:new, :create]
   
   def new
   end
   
   def create
-    user = User.find_by_email(params[:email])
+    user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to root_url, notice: "Logged in."
+      sign_in user
+      redirect_back_or user
     else
       flash.now.alert = "Invalid email or password."
       render :new
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    session[:user_id] = nil
-    redirect_to login_url, notice: 'Logged out.'
+    sign_out
+    redirect_to root_url, notice: 'Logged out.'
   end
 end

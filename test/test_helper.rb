@@ -7,6 +7,8 @@ class ActiveSupport::TestCase
   fixtures :all
   
   def sign_in(user)
-    session[:user_id] = user.id unless user.nil?
+    remember_token = User.new_remember_token
+    cookies[:remember_token] = remember_token
+    user.update_attribute(:remember_token, User.digest(remember_token))
   end
 end
