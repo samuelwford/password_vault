@@ -33,3 +33,10 @@
     <% end %>
   </tbody>
 </table>
+
+<hr/>
+<ul>
+  <% @user.activities.each do |activity| %>
+    <li><%= activity.action.humanize %> <%= time_ago_in_words(activity.created_at) %> ago: <%= link_to activity.account.name, activity.account %></li>
+  <% end %>
+</ul>

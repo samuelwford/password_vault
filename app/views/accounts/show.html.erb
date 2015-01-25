@@ -12,8 +12,15 @@
   </tr>
 </table>
 
-<hr>
+<hr/>
 <p><%= @account.notes %></p>
 
 <%= link_to 'Edit', edit_account_path(@account), class: 'button' %> 
 <%= link_to 'Destroy', @account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button error' %>
+
+<hr/>
+<ul>
+  <% @account.activities.each do |activity| %>
+    <li><%= activity.action.humanize %> by <%= link_to activity.user.name, activity.user %> <%= time_ago_in_words(activity.created_at) %> ago.</li>
+  <% end %>
+</ul>

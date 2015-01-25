@@ -9,6 +9,7 @@ class AccountsController < ApplicationController
   end
 
   def show
+    @account.record_viewed_by current_user
     respond_with(@account)
   end
 
@@ -18,16 +19,19 @@ class AccountsController < ApplicationController
   end
 
   def edit
+    @account.record_edited_by current_user
   end
 
   def create
     @account = Account.new(account_params)
+    @account.record_created_by current_user
     @account.save
     respond_with(@account)
   end
 
   def update
     @account.update(account_params)
+    @account.record_changed_by current_user
     respond_with(@account)
   end
 

@@ -31,10 +31,5 @@ Make note of the version in the path; yours may have changed.
 * add fields to password:
  * api key
  * attachment
-* password history
- * timestamp
- * user
- * action
- * value
 * change queue?
 * setup google oath login
