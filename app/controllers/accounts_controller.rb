@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
   respond_to :html
 
   def index
-    @accounts = policy_scope(Account)
+    @accounts = policy_scope(Account).order(:name)
     respond_with(@accounts)
   end
 
