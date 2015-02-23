@@ -1,6 +1,6 @@
-<h2>Accounts</h2>
+<h3>Accounts</h3>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -13,10 +13,10 @@
   <tbody>
     <% @accounts.each do |account| %>
       <tr>
-        <td><%= link_to account.name, account %></td>
+        <td><%= account.name %> <%= link_to 'Show', account, class: 'btn btn-default btn-xs' %></td>
         <td><%= account.account_name %></td>
         <td><%= link_to_if account.url, account.url, account.url %></td>
-        <td><%= link_to account.group.name, account.group %></td>
+        <td><%= account.group.name %> <%= link_to 'Show', account.group, class: 'btn btn-default btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Account', new_account_path, class: 'button' %>
+<%= link_to 'New Account', new_account_path, class: 'btn btn-default' %>

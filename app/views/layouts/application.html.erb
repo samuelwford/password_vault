@@ -2,46 +2,48 @@
 <html>
 <head>
   <title>PasswordVault</title>
-  <link href="http://picnicss.com/releases/v2.3.min.css" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<nav>
-  <%= link_to root_path, class: 'main' do %>
-    <%= image_tag 'vault_logo.png' %> Password Vault
-  <% end %>
-  <!-- responsive -->
-  <input id="bmenu" class="burgercheck" type="checkbox">
-  <label for="bmenu" class="burgermenu"></label>
-  <!-- /responsive -->
-
-  <div class="menu">
-    <% if signed_in? %>
-      <%= link_to "Accounts", accounts_path, class: 'icon-key' %>
-      <%= link_to "Groups", groups_path, class: 'icon-suitcase' %>
-      <%= link_to "Users", users_path, class: 'icon-users' %>
-      <%= link_to current_user.name, users_path(current_user), class: 'icon-user' %>
-      <%= link_to '', logout_path, method: :delete, class: 'icon-logout' %>
-    <% else %>
-      <%= link_to "Log In", login_path, class: 'icon-login' %>
-    <% end %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'Password Vault', root_path, class: 'navbar-brand' %>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Accounts", accounts_path %></li>
+        <li><%= link_to "Groups", groups_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+      </ul>
+      <% if current_user %>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to current_user.name, current_user %>
+        </li>
+        <li>
+          <%= link_to '', logout_path, method: :delete, class: 'glyphicon glyphicon-log-out' %>
+        </li>
+      </ul>
+      <% end %>
+    </div><!--/.nav-collapse -->
   </div>
 </nav>
 
-<div class="main-content">
-  <% if notice %>
-    <div class="notice"><%= notice %></div>
-  <% end %>
-  
-  <% if alert %>
-    <div class="alert"><%= alert %></div>
-  <% end %>
-  
+<div class="container">
+  <% if notice %><div class="alert alert-success"><%= notice %></div><% end %>
+  <% if alert %><div class="alert alert-warning"><%= alert %></div><% end %>
   <%= yield %>
-</div>
+</div><!-- /.container -->
 
 </body>
 </html>

@@ -1,22 +1,25 @@
-<h2><%= @account.name %> - <%= link_to @account.group.name, @account.group %></h2>
+<h3><%= @account.name %></h3>
 
-<table>
+<table class='table table-bordered table-striped' style='width: auto !important;'>
   <tr>
-    <td class='field-label'>URL:</td><td><%= link_to_if @account.url, @account.url, @account.url %></td>
+    <th class='field-label'>URL:</th><td><%= link_to_if @account.url, @account.url, @account.url %></td>
   </tr>
   <tr>
-    <td class='field-label'>Account Name:</td><td><%= @account.account_name %></td>
+    <th class='field-label'>Account Name:</th><td><%= @account.account_name %></td>
   </tr>
   <tr>
-    <td class='field-label'>Password:</td><td><%= @account.password %></td>
+    <th class='field-label'>Password:</th><td><%= @account.password %></td>
+  </tr>
+  <tr>
+    <th class='field-label'>Group:</th><td><%= @account.group.name %> <%= link_to 'Show', @account.group, class: 'btn btn-default btn-xs' %></td>
   </tr>
 </table>
 
-<hr/>
-<p><%= @account.notes %></p>
+<h4>Notes</h4>
+<pre><%= @account.notes %></pre>
 
-<%= link_to 'Edit', edit_account_path(@account), class: 'button' %> 
-<%= link_to 'Destroy', @account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button error' %>
+<%= link_to 'Edit', edit_account_path(@account), class: 'btn btn-default' %> 
+<%= link_to 'Destroy', @account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 
 <hr/>
 <ul>
