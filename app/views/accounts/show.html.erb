@@ -1,27 +1,33 @@
-<h3><%= @account.name %></h3>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= @account.name %> Account
+      <%= link_to 'Edit', edit_account_path(@account), class: 'btn btn-default btn-xs' %> 
+      <%= link_to 'Destroy', @account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <table class='table table-bordered table-striped' style='width: auto !important;'>
+      <tr>
+        <th class='field-label'>URL:</th><td><%= link_to_if @account.url, @account.url, @account.url %></td>
+      </tr>
+      <tr>
+        <th class='field-label'>Account Name:</th><td><%= @account.account_name %></td>
+      </tr>
+      <tr>
+        <th class='field-label'>Password:</th><td><%= @account.password %></td>
+      </tr>
+      <tr>
+        <th class='field-label'>Group:</th><td><%= @account.group.name %> <%= link_to 'Show', @account.group, class: 'btn btn-default btn-xs' %></td>
+      </tr>
+    </table>
 
-<table class='table table-bordered table-striped' style='width: auto !important;'>
-  <tr>
-    <th class='field-label'>URL:</th><td><%= link_to_if @account.url, @account.url, @account.url %></td>
-  </tr>
-  <tr>
-    <th class='field-label'>Account Name:</th><td><%= @account.account_name %></td>
-  </tr>
-  <tr>
-    <th class='field-label'>Password:</th><td><%= @account.password %></td>
-  </tr>
-  <tr>
-    <th class='field-label'>Group:</th><td><%= @account.group.name %> <%= link_to 'Show', @account.group, class: 'btn btn-default btn-xs' %></td>
-  </tr>
-</table>
+    <h4>Notes</h4>
+    <pre><%= @account.notes %></pre>
+  </div>
+</div>
 
-<h4>Notes</h4>
-<pre><%= @account.notes %></pre>
-
-<%= link_to 'Edit', edit_account_path(@account), class: 'btn btn-default' %> 
-<%= link_to 'Destroy', @account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-
-<hr/>
+<h4>Activity</h4>
 <ul>
   <% @account.activities.each do |activity| %>
     <li><%= activity.action.humanize %> by <%= link_to activity.user.name, activity.user %> <%= time_ago_in_words(activity.created_at) %> ago.</li>

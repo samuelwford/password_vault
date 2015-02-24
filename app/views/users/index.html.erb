@@ -14,7 +14,7 @@
       <tr>
         <td><%= user.name %> <%= link_to 'Show', user_path(user), class: 'btn btn-default btn-xs' %></td>
         <td><%= user.email %></td>
-        <td><%= user.admin? ? "Admin" : "" %></td>
+        <td><%= user.admin? ? "Yes" : "" %></td>
       </tr>
     <% end %>
   </tbody>
