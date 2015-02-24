@@ -1,7 +1,14 @@
 class SessionsController < ApplicationController
-  skip_before_filter :signed_in_user, only: [:new, :create]
+  skip_before_filter :signed_in_user, only: [:new, :create, :omniauth_callback]
   
   def new
+  end
+
+  def omniauth_callback
+    auth = request.env["omniauth.auth"]
+    user = User.find_for_google_oauth2(auth)
+    sign_in user
+    redirect_back_or user
   end
   
   def create

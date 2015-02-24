@@ -46,9 +46,9 @@ class UsersController < ApplicationController
 
     def user_params
       if current_user.admin
-        params.require(:user).permit(:name, :email, :url, :password, :password_confirmation, :admin, { group_ids: [] })
+        params.require(:user).permit(:name, :active, :admin, { group_ids: [] })
       else
-        params.require(:user).permit(:name, :email, :url, :password, :password_confirmation)
+        params.require(:user).permit(:name)
       end
     end
 end

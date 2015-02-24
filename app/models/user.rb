@@ -31,4 +31,21 @@ class User < ActiveRecord::Base
   def create_remember_token
     self.remember_token = User.digest(User.new_token)
   end
+  
+  def self.find_for_google_oauth2(access_token)
+      data = access_token.info
+      user = User.where(email: data["email"]).first
+      unless user
+        password = User.new_token
+        if data["email"].end_with?("1up.fm")
+          user = User.create(name: data["name"],
+             email: data["email"],
+             password: password,
+             password_confirmation: password,
+             active: true
+          )
+        end
+      end
+      user
+  end
 end
