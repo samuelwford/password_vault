@@ -16,31 +16,34 @@
         <td><%= @user.admin? ? "Yes" : "" %></td>
       </tr>
     </table>
-
-    <h4>Groups</h4>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Number of Accounts</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @user.groups.each do |group| %>
-          <tr>
-            <td><%= group.name %> <%= link_to 'Show', group, class: 'btn btn-default btn-xs' %></td>
-            <td><%= group.accounts.count %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
   </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Group</th>
+        <th>Number of Accounts</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user.groups.each do |group| %>
+        <tr>
+          <td><%= group.name %> <%= link_to 'Show', group, class: 'btn btn-default btn-xs' %></td>
+          <td><%= group.accounts.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<h4>Activity</h4>
-<ul>
-  <% @user.activities.each do |activity| %>
-    <li><%= activity.action.humanize %> <%= time_ago_in_words(activity.created_at) %> ago: <%= link_to activity.account.name, activity.account if activity.account %></li>
-  <% end %>
-</ul>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Activity</h3>
+  </div>
+  <ul class="list-group">
+    <% @user.activities.each do |activity| %>
+      <li class="list-group-item"><%= activity.action.humanize %> <%= time_ago_in_words(activity.created_at) %> ago: <%= link_to activity.account.name, activity.account if activity.account %></li>
+    <% end %>
+  </ul>
+</div>

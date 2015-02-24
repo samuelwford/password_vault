@@ -27,9 +27,13 @@
   </div>
 </div>
 
-<h4>Activity</h4>
-<ul>
-  <% @account.activities.each do |activity| %>
-    <li><%= activity.action.humanize %> by <%= link_to activity.user.name, activity.user %> <%= time_ago_in_words(activity.created_at) %> ago.</li>
-  <% end %>
-</ul>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Activity</h3>
+  </div>
+  <ul class="list-group">
+    <% @account.activities.each do |activity| %>
+      <li class="list-group-item"><%= activity.action.humanize %> by <%= link_to activity.user.name, activity.user %> <%= time_ago_in_words(activity.created_at) %> ago.</li>
+    <% end %>
+  </ul>
+</div>

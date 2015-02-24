@@ -1,23 +1,26 @@
-<h3>Users</h3>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Admin?</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Users</h3>
+  </div>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= user.name %> <%= link_to 'Show', user_path(user), class: 'btn btn-default btn-xs' %></td>
-        <td><%= user.email %></td>
-        <td><%= user.admin? ? "Yes" : "" %></td>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Admin?</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'New User', new_user_path, class: 'btn btn-default' %>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %> <%= link_to 'Show', user_path(user), class: 'btn btn-default btn-xs' %></td>
+          <td><%= user.email %></td>
+          <td><%= user.admin? ? "Yes" : "" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="panel-footer">
+    <%= link_to 'New User', new_user_path, class: 'btn btn-default btn-xs' %>
+  </div>
+</div>
