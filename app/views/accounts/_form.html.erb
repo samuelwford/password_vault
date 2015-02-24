@@ -1,0 +1,11 @@
+<%= bootstrap_form_for @account, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10" do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_field :url %>
+    <%= f.text_field :account_name %>
+    <%= f.text_field :password %>
+    <%= f.select :group_id, policy_scope(Group).order(:name).collect { |g| [ g.name, g.id ] }, { class: 'selectpicker' } %>
+    <%= f.text_area :notes, rows: "5" %>
+    <%= f.form_group do %>
+      <%= f.submit %>
+    <% end %>
+<% end %>

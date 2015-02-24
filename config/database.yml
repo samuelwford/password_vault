@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: password_vault_production
-  username: password_vault
   password: <%= ENV['PASSWORD_VAULT_DATABASE_PASSWORD'] %>

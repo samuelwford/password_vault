@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Accounts</h3>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Account Name</th>
+        <th>Url</th>
+        <th>Group</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @accounts.each do |account| %>
+        <tr>
+          <td><%= account.name %> <%= link_to 'Show', account, class: 'btn btn-default btn-xs' %></td>
+          <td><%= account.account_name %></td>
+          <td><%= link_to_if account.url, account.url, account.url %></td>
+          <td><%= account.group.name %> <%= link_to 'Show', account.group, class: 'btn btn-default btn-xs' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="panel-footer">
+    <%= link_to 'New Account', new_account_path, class: 'btn btn-default btn-xs' %>
+  </div>
+</div>
+

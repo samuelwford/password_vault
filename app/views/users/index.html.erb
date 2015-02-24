@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Users</h3>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Active?</th>
+        <th>Admin?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %> <%= link_to 'Show', user_path(user), class: 'btn btn-default btn-xs' %></td>
+          <td><%= user.email %></td>
+          <td><%= user.active? ? "Yes" : "" %></td>
+          <td><%= user.admin? ? "Yes" : "" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= @account.name %> Account
+      <%= link_to 'Edit', edit_account_path(@account), class: 'btn btn-default btn-xs' %> 
+      <%= link_to 'Destroy', @account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <table class='table table-bordered' style='width: auto !important;'>
+      <tr>
+        <th class='field-label'>URL:</th><td><%= link_to_if @account.url, @account.url, @account.url %></td>
+      </tr>
+      <tr>
+        <th class='field-label'>Account Name:</th><td><%= @account.account_name %></td>
+      </tr>
+      <tr>
+        <th class='field-label'>Password:</th><td><%= @account.password %></td>
+      </tr>
+      <tr>
+        <th class='field-label'>Group:</th><td><%= @account.group.name %> <%= link_to 'Show', @account.group, class: 'btn btn-default btn-xs' %></td>
+      </tr>
+    </table>
+
+    <h4>Notes</h4>
+    <pre><%= @account.notes %></pre>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Activity</h3>
+  </div>
+  <ul class="list-group">
+    <% @account.activities.each do |activity| %>
+      <li class="list-group-item"><%= activity.action.humanize %> by <%= link_to activity.user.name, activity.user %> <%= time_ago_in_words(activity.created_at) %> ago.</li>
+    <% end %>
+  </ul>
+</div>

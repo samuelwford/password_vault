@@ -1,0 +1,14 @@
+<%= bootstrap_form_for @user, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10" do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :email, readonly: true %>
+  <% if current_user.admin %>
+    <%= f.form_group do %>
+      <%= f.check_box :active %>
+      <%= f.check_box :admin %>
+    <% end %>
+    <%= f.collection_check_boxes :group_ids, Group.all, :id, :name %>
+  <% end %>
+  <%= f.form_group do %>
+    <%= f.submit %>  
+  <% end %>
+<% end %>

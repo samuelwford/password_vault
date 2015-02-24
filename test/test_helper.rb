@@ -5,6 +5,10 @@ require 'rails/test_help'
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
-
-  # Add more helper methods to be used by all tests here...
+  
+  def sign_in(user)
+    remember_token = User.new_token
+    cookies[:remember_token] = remember_token
+    user.update_attribute(:remember_token, User.digest(remember_token))
+  end
 end

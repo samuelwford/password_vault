@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Groups</h3>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Number of Accounts</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= group.name %> <%= link_to 'Show', group, class: 'btn btn-default btn-xs' %></td>
+          <td><%= group.accounts.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="panel-footer">
+    <%= link_to 'New Group', new_group_path, class: 'btn btn-default btn-xs' %>
+  </div>
+</div>
