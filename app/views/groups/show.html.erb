@@ -5,6 +5,10 @@
       <%= link_to 'Edit', edit_group_path(@group), class: 'btn btn-default btn-xs' %>
     </h3>
   </div>
+  <div class="panel-body">
+    <h4>Members</h4>
+    <%= render partial: 'users/user', collection: @group.users, spacer_template: 'shared/comma' %>
+  </div>
   <table class="table">
     <thead>
       <tr>
@@ -13,7 +17,6 @@
         <th>URL</th>
       </tr>
     </thead>
-
     <tbody>
       <% @group.accounts.each do |account| %>
         <tr>
