@@ -7,8 +7,13 @@ class SessionsController < ApplicationController
   def omniauth_callback
     auth = request.env["omniauth.auth"]
     user = User.find_for_google_oauth2(auth)
-    sign_in user
-    redirect_back_or user
+    if user.nil? 
+      flash[:notice] = "Only authorized accounts are permitted."
+      redirect_to login_url
+    else
+      sign_in user
+      redirect_back_or user
+    end
   end
   
   def create

@@ -21,6 +21,6 @@ module PasswordVault
     # config.i18n.default_locale = :de
     
     config.account_setup = ActiveSupport::OrderedOptions.new
-    config.account_setup.valid_email_suffix = ENV["VALID_EMAIL_SUFFIX"] || ""
+    config.restrict_oauth_to_emails_suffix = ENV["RESTRICT_OAUTH_TO_EMAILS_SUFFIX"] || ""
   end
 end

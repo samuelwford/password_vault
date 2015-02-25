@@ -16,20 +16,35 @@ gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/
 
 Make note of the version in the path; yours may have changed.
 
+Since the application is intended to be deployed to Heroku, install [Foreman](https://github.com/ddollar/foreman).
+To run the app with foreman, use:
+
+```
+$ foreman start
+```
+
+The application uses Google OpenID Connect to authenticate users and expects to get the
+client Id and secret from the environment. You'll need to create a `.env` file in the root
+of the project with the following settings:
+
+```
+GOOGLE_CLIENT_ID=<id from google developers console>
+GOOGLE_CLIENT_SECRET=<secret from google developer console>
+RESTRICT_OAUTH_TO_EMAILS_SUFFIX=1up.fm
+```
+
+The Google Apps OpenID Connect project is called [OneUp Password Vault](https://console.developers.google.com/project/lucky-trail-665) on 
+[Google Developer Console](https://console.developers.google.com/project).
+
 ### Links
 
-* [Heroku Dashboard](https://dashboard.heroku.com/apps/password-vault-develop/resources)
+* [Heroku Dashboard](https://dashboard.heroku.com/apps/oneup-password-vault/resources)
 
 ## ToDo
 
-* sweeten up ui a little
 * import/export via keepass files
 * encrypt passwords in db, decrypt in browser
-* user
- * allow admin to reset any password
- * allow current user to reset their password
 * add fields to password:
  * api key
  * attachment
 * change queue?
-* setup google oath login
