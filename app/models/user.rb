@@ -37,7 +37,8 @@ class User < ActiveRecord::Base
       user = User.where(email: data["email"]).first
       unless user
         password = User.new_token
-        if data["email"].end_with?("1up.fm")
+        email_suffix = Rails.configuration.account_setup.valid_email_suffix
+        if data["email"].end_with?(email_suffix)
           user = User.create(name: data["name"],
              email: data["email"],
              password: password,

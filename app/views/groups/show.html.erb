@@ -13,7 +13,6 @@
         <th>URL</th>
       </tr>
     </thead>
-
     <tbody>
       <% @group.accounts.each do |account| %>
         <tr>
@@ -24,4 +23,7 @@
       <% end %>
     </tbody>
   </table>
+  <div class="panel-footer">
+    <%= link_to 'New Account', new_account_path(group_id: @group), class: 'btn btn-default btn-xs' %>
+  </div>
 </div>

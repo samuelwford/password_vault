@@ -1,5 +1,5 @@
 <%= bootstrap_form_for @account, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10" do |f| %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, autofocus: true %>
     <%= f.text_field :url %>
     <%= f.text_field :account_name %>
     <%= f.text_field :password %>

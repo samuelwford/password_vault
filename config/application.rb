@@ -19,5 +19,8 @@ module PasswordVault
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    
+    config.account_setup = ActiveSupport::OrderedOptions.new
+    config.account_setup.valid_email_suffix = ENV["VALID_EMAIL_SUFFIX"] || ""
   end
 end
