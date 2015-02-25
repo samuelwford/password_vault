@@ -21,9 +21,14 @@
         <th class='field-label'>Group:</th><td><%= @account.group.name %> <%= link_to 'Show', @account.group, class: 'btn btn-default btn-xs' %></td>
       </tr>
     </table>
-
-    <h4>Notes</h4>
-    <pre><%= @account.notes %></pre>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Notes
+      </div>
+      <div class="panel-body markdown-notes">
+        <%= markdown @account.notes %>
+      </div>
+    </div>
   </div>
 </div>
 

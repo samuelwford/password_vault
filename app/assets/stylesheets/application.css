@@ -18,3 +18,23 @@
 body {
   padding-top: 60px;
 }
+
+.markdown-notes h1 {
+  font-size: 16px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.markdown-notes h2 {
+  font-size: 1em;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.markdown-notes h3 {
+  font-size: 1em;
+  font-weight: normal;
+  font-style: italic;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
