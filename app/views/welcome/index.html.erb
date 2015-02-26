@@ -1,5 +1,32 @@
-<h2>Work in Progress</h2>
+<h2>Password Vault</h2>
 
-<div>
-  A Heroku-friendly, web-based, team password and account manager.
-</div>
+<p>
+  A simple, Heroku-friendly, web-based, team password and account manager.
+</p>
+
+<h3>How it Works</h3>
+
+<p>
+  Passwords are associated with <em>accounts</em> which have a name, a URL, an account or user name, a password, 
+  and some notes. Notes provide <a href="http://daringfireball.net/projects/markdown/">Markdown</a> support
+  allowing formatting for lists, tables even links and code snippets.
+</p>
+
+<p>
+  Accounts are organized into <em>groups</em>; every account belongs to exactly one group. Permissions are 
+  granted by adding users to groups. Any user belonging to a group can view and edit accounts in that group.
+  Users can also create groups to which they will automatically be added as members. Users can belong to any
+  number of groups.
+</p>
+
+<p>
+  Users with administrator rights can change group membership, grant administrator rights to other users and 
+  delete accounts.
+</p>
+
+<p>
+  When ever an account is viewed, updated or created, an activity record is generated associating that user
+  and that account. By viewing the details of a user or an account, the recent activity specific to that user
+  or that account can be viewed.
+</p>
+
