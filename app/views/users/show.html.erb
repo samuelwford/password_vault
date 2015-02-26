@@ -2,7 +2,7 @@
   <div class="panel-heading">
     <h3 class="panel-title">
       <%= @user.name %>
-      <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-default btn-xs' %> 
+      <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-default btn-xs' if policy(@user).update? %> 
     </h3>
   </div>
   <div class="panel-body">
@@ -21,33 +21,36 @@
       </tr>
     </table>
   </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Group</th>
-        <th>Number of Accounts</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @user.groups.each do |group| %>
+  
+  <% if current_user.admin? %>
+    <table class="table">
+      <thead>
         <tr>
-          <td><%= group.name %> <%= link_to 'Show', group, class: 'btn btn-default btn-xs' %></td>
-          <td><%= group.accounts.count %></td>
+          <th>Group</th>
+          <th>Number of Accounts</th>
         </tr>
+      </thead>
+      <tbody>
+        <% @user.groups.each do |group| %>
+          <tr>
+            <td><%= group.name %> <%= link_to 'Show', group, class: 'btn btn-default btn-xs' %></td>
+            <td><%= group.accounts.count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+<% if current_user.admin? %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Activity</h3>
+    </div>
+    <ul class="list-group">
+      <% @user.activities.each do |activity| %>
+        <li class="list-group-item"><%= activity.action.humanize %> <%= time_ago_in_words(activity.created_at) %> ago: <%= link_to activity.account.name, activity.account if activity.account %></li>
       <% end %>
-    </tbody>
-  </table>
-</div>
-
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Activity</h3>
+    </ul>
   </div>
-  <ul class="list-group">
-    <% @user.activities.each do |activity| %>
-      <li class="list-group-item"><%= activity.action.humanize %> <%= time_ago_in_words(activity.created_at) %> ago: <%= link_to activity.account.name, activity.account if activity.account %></li>
-    <% end %>
-  </ul>
-</div>
+<% end %>

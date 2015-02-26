@@ -20,6 +20,7 @@ module PasswordVault
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     
+    config.account_setup = ActiveSupport::OrderedOptions.new
     config.restrict_oauth_to_emails_suffix = ENV["RESTRICT_OAUTH_TO_EMAILS_SUFFIX"] || ""
   end
 end

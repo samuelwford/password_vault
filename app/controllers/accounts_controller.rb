@@ -14,7 +14,7 @@ class AccountsController < ApplicationController
   end
 
   def new
-    @account = Account.new
+    @account = Account.new(group_id: params[:group_id])
     respond_with(@account)
   end
 
