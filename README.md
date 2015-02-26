@@ -2,7 +2,7 @@
 
 Ultra simple, web based, team password manager.
 
-[ ![Codeship Status for samuelwford/password_vault](https://codeship.io/projects/f996c870-fdfc-0131-d4fe-52725ace5304/status)](https://codeship.io/projects/29497)
+[ ![Codeship Status for oneupsports/password-vault](https://codeship.com/projects/1af8dfd0-9f3b-0132-84c6-520a26f6f18f/status?branch=master)](https://codeship.com/projects/65085)
 
 ## Getting Setup for Development
 

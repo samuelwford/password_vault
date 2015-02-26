@@ -31,4 +31,10 @@ class Account < ActiveRecord::Base
       activities.create(user: user, action: action)
     end
   end
+  
+  def self.import!(row)
+    group = Group.find_or_create_by_name(row["Group"])
+    account = Account.new(group: group, name: row["Title"], account_name: row["Username"], url: row["URL"], password: row["Password"], notes: row["Notes"])
+    account.save!
+  end
 end

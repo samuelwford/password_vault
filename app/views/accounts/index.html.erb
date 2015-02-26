@@ -7,7 +7,6 @@
       <tr>
         <th>Name</th>
         <th>Account Name</th>
-        <th>Url</th>
         <th>Group</th>
       </tr>
     </thead>
@@ -17,7 +16,6 @@
         <tr>
           <td><%= account.name %> <%= link_to 'Show', account, class: 'btn btn-default btn-xs' %></td>
           <td><%= account.account_name %></td>
-          <td><%= link_to_if account.url, account.url, account.url %></td>
           <td><%= account.group.name %> <%= link_to 'Show', account.group, class: 'btn btn-default btn-xs' %></td>
         </tr>
       <% end %>
